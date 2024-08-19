@@ -1,0 +1,3 @@
+CREATE LOGIN quangphuc WITH PASSWORD='123456';
+
+CREATE USER quangphuc FOR LOGIN quangphuc;

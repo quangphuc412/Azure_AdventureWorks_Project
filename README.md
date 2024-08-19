@@ -37,6 +37,8 @@ This an end-to-end data engineering project on the Azure cloud. Where I did data
 - It is a sample Online Transaction Processing (or OLTP) database, which is a type of data processing where multiple transactions occur concurrently. These are shipped by Microsoft with all of their SQL server products.
 
 > For this project I used the **Lightweight (LT) data**: a lightweight and pared down version of the OLTP sample. [Download here](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2022.bak)
+<a href="https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms" target="_blank">AdventureWorks sample databases</a>
+
 
 ### 🎯 Project Goals
 

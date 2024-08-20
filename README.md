@@ -65,7 +65,7 @@ This an end-to-end data engineering project on the Azure cloud:
   - **Top 2:** Krishna(ID:30050) have the second total sales with $108597.95 of total revenue and 197 quantity of products ordered.
   - **Top 3:** Christopher(ID:29546) have the third total sales with $98138.21 of total revenue and 167 quantity of products ordered.
 
-- 🚻 **List of sales quantity information of each product** 
+- 📋 **List of sales quantity information of each product** 
 
 <a name="project-architecture"></a>
 ## 🛠️ Project Architecture

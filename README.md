@@ -5,15 +5,15 @@
 
   <div id="user-content-toc">
     <ul>
-      <summary><h1 style="display: inline-block;">🔧 Analyzing Sales of AdventureWorks 🔌</h1></summary>
+      <summary><h1 style="display: inline-block;">📊Analyzing Sales of AdventureWorks 2022</h1></summary>
     </ul>
   </div>
   
-  <p>On-prem DB to Azure Cloud Pipeline with Data Factory, Lake Storage, Spark, Databricks, Synapse, PowerBI</p>
+  <p>On-prem DB to Azure Cloud Pipeline with Data Factory, Data Lake Storage, Spark, Databricks, Synapse Analytics, PowerBI.</p>
 </div>
 <br>
 
-## 📝 Table of Contents
+## 📑 Table of Contents
 1. [Project Overview](#introduction)
 2. [Key Insights](#key-insights)
 3. [Project Architecture](#project-architecture)  
@@ -21,22 +21,27 @@
   3.2. [Data Transformation](#data-transformation)  
   3.3. [Data Loading](#data-loading)  
   3.4. [Data Reporting](#data-reporting)
-4. [Credits](#credits)
+4. [Reference](#reference)
 5. [Contact](#contact)
 
 <a name="introduction"></a>
 ## 🔬 Project Overview 
 
-This an end-to-end data engineering project on the Azure cloud. Where I did data ingestion from a on-premise SQL Server to Azure Data Lake using Data Factory to transformation using Databricks and Spark, loading to Synapse, and reporting using PowerBI. Also, I used Azure Active Directory (AAD) and Azure Key Vault for the data monitoring and governance purpose. 
+This an end-to-end data engineering project on the Azure cloud:
+- Data ingestion from a on-premise SQL Server to Azure Data Lake Gen 2 using Data Factory.
+- Data transformation using Databricks and Spark.
+- Using Synapse Analytics to load data and store into Database.
+- Reporting using PowerBI. 
+- Using Azure Key Vault for the secret key storing.
 
-### 💾 Dataset
+### 🗃️ Dataset
 
-**AdventureWorks** is a database provided by Microsoft for free on online platforms. It is a product sample database originally published by Microsoft to demonstrate the supposed design of a SQL server database using SQL server 2008. Here are some key points to know about AdventureWorks:
+**AdventureWorks** is a database provided by Microsoft for free on online platforms. It is a product sample database originally published by Microsoft to demonstrate the supposed design of a SQL server database. Here are some key points to know about AdventureWorks:
 
 - AdventureWorks database supports a manufacturing MNC named Adventure Works Cycles.
 - It is a sample Online Transaction Processing (or OLTP) database, which is a type of data processing where multiple transactions occur concurrently. These are shipped by Microsoft with all of their SQL server products.
 
-> For this project I used the **Lightweight (LT) data**: a lightweight and pared down version of the OLTP sample. [Download here](https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2022.bak)
+> For this project I used the **Lightweight(LT) AdventureWorksLT2022 data**: a lightweight and pared down version of the OLTP sample.
 <a href="https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms" target="_blank">AdventureWorks sample databases</a>
 
 
@@ -45,32 +50,29 @@ This an end-to-end data engineering project on the Azure cloud. Where I did data
 - Establish a connection between on-premise SQL server and Azure cloud.
 - Ingest tables into the Azure Data Lake.
 - Apply data cleaning and transformation using Azure Databricks.
-- Utilize Azure Synapse Analytics for loading clean data.
+- Utilize Azure Synapse Analytics for loading clean data and storage into database.
 - Create interactive data visualizations and reports with Microsoft Power BI.
-- Implement Azure Active Directory (AAD) and Azure Key Vault for monitoring and governance.
+- Implement Azure Key Vault for monitoring and governance.
 
 <a name="key-insights"></a>
-## 🕵️ Key Insights
+## 💡 Key Insights
 
-- 💸 **Total Revenue by Product Category**
-  - *Touring Bikes* is the top 1 category generating revenue with 32% followed by *Road Bikes* with 26% and *Mountain Bikes* with 24%.
+- 🛒 **Number of products sold by Product Category**
+  - *Touring Bikes* is the top number 1 of products sold with 252(12.07%) followed by *Jerseys* with 230(11.02%), *Road Bikes* with 222(10.64%) and *Mountain Bikes* with 209(10.01%).
  
-- 🌍 **Sales by Country**
-  - **N°1:** The United Kingdom (UK) have the most total sales with 278 and $572,000 of total revenue.
-  - **N°2:** The United States of America (USA) is second with total sales with 264 and $383,810 of total revenue.
+- 💸 **Total revenue and quantity of products ordered by customer ID and name**
+  - **Top 1:** Terry(ID:29736) have the most total sales with $119960.82 of total revenue and 267 quantity of products ordered.
+  - **Top 2:** Krishna(ID:30050) have the second total sales with $108597.95 of total revenue and 197 quantity of products ordered.
+  - **Top 3:** Christopher(ID:29546) have the third total sales with $98138.21 of total revenue and 167 quantity of products ordered.
 
-- 🚻 **Revenue by Gender**
-  - 81% of the revenue is generated by Male customers
-  - 19% of the revenue is generated by Female customers  
-
-> This can be explained by males have more interest in doing outdoor activites with the different categories of Bikes than females.
+- 🚻 **List of sales quantity information of each product** 
 
 <a name="project-architecture"></a>
-## 📝 Project Architecture
+## 🛠️ Project Architecture
 
 You can find the detailed information on the diagram below:
 
-![AzurePipeline-Hamagistral](https://github.com/Hamagistral/Azure-AW/assets/66017329/ebb0f88b-917f-4a6a-be6b-ddf6093ad793)
+![AzurePipeline-Hamagistral](image/ProjectArchitecture.png)
 
 <a name="data-ingestion"></a>
 ### 📤 Data Ingestion
@@ -85,6 +87,8 @@ You can find the detailed information on the diagram below:
 - Migrated the tables from on-premise SQL Server to Azure Data Lake Storage Gen2.
 
 ![image](image/AzureDataLakeStorageGen2.png)
+
+- Data Pineline using Azure Data Factory to loading data from On-permise SQL Server to Data Lake Gen 2, transfomed data and save cleared data.
 ![df-pipeline](image/DataPinelineADF.png)
 
 <a name="data-transformation"></a>
@@ -116,15 +120,16 @@ You can find the detailed information on the diagram below:
 - **Orchestration**: Azure Data Factory
 - **Ingestion**: Azure Data Lake Gen2
 - **Storage**: Azure Synapse Analytics
-- **Authentication and Secrets Management**: Azure Active Directory and Azure Key Vault
+- **Authentication and Secrets Management**: Azure Key Vault
 - **Data Visualization**: PowerBI
 
-<a name="credits"></a>
-## 📋 Credits
+<a name="reference"></a>
+## 📋 Reference
 
 - This Project is inspired by the video of the [YouTube Channel "Mr. K Talks Tech"](https://www.youtube.com/watch?v=iQ41WqhHglk)  
 
 <a name="contact"></a>
 ## 📨 Contact Me
 
-[Gmail](nguyenquangphuc412@gmail.com)
+- Name: Nguyễn Quang Phúc
+- Gmail: nguyenquangphuc412@gmail.com
